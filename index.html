@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brat Myśli Że Samiec Alfa (Bo jest)</title>
+    <link rel="icon" href="https://avatarfiles.alphacoders.com/307/thumb-307499.png">
+</head>
+<style>
+    *{
+        overflow: hidden;
+        background-color: black;
+    }
+    iframe.fullScreen {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+<script>
+    function requestFullScreen(element) {
+        // Supports most browsers and their versions.
+        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
+
+        if (requestMethod) { // Native full screen.
+            requestMethod.call(element);
+        } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            var wscript = new ActiveXObject("WScript.Shell");
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
+        }
+    }  
+    // FullScreen function
+    function makeFullScreen() {
+        document.getElementsByTagName("iframe")[0].className = "fullScreen";
+        var elem = document.body;
+        requestFullScreen(elem);
+    }
+</script>
+<body onload="makeFullScreen()">
+    <iframe width="640" height="360" src="https://www.youtube.com/embed/SChnJDfmrSU?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</body>
+</html>
